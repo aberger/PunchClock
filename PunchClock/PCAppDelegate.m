@@ -8,7 +8,6 @@
 
 #import "PCAppDelegate.h"
 #import <KeychainItemWrapper/KeychainItemWrapper.h>
-#import <ZeroPush/ZeroPush.h>
 
 @implementation PCAppDelegate
 
@@ -30,7 +29,6 @@
 	// Default Settings
 	NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithCapacity:1];
 	settings[@"username"] = @"";
-	settings[@"push_id"] = @"";
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:settings];
 
@@ -42,14 +40,6 @@
 	application.statusBarStyle = UIStatusBarStyleLightContent;
 
 	[application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-
-	if (launchOptions != nil) {
-		NSDictionary *dictionary = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-
-		if (dictionary != nil) {
-			DDLogInfo(@"Launched from push notification: %@", dictionary);
-		}
-	}
 
 	return YES;
 }
@@ -119,60 +109,6 @@
 
 #pragma mark - Notifications
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)tokenData
-{
-	[[ZeroPush shared] registerDeviceToken:tokenData];
-	NSString *tokenString = [ZeroPush deviceTokenFromData:tokenData];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:tokenString forKey:@"push_id"];
-
-	DDLogDebug(@"Push Token is %@", tokenString);
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
-	DDLogDebug(@"Push notification: %@", userInfo);
-
-	//if the notification doesn't say there is content available just return
-	NSDictionary *aps = userInfo[@"aps"];
-
-	if (![aps[@"content-available"] intValue]) {
-		DDLogDebug(@"Updating Status List");
-
-		NSNotification *n = [NSNotification notificationWithName:@"StatusUpdated" object:nil];
-		[[NSNotificationCenter defaultCenter] postNotification:n];
-
-		completionHandler(UIBackgroundFetchResultNoData);
-		return;
-	} else {
-
-		dispatch_group_enter(self.locationManager.dispatchGroup);
-
-		BOOL updated = [self.locationManager updateLocationStatusIfNeeded];
-		UIBackgroundFetchResult result;
-
-		if (updated) {
-			result = UIBackgroundFetchResultNewData;
-		} else {
-			result = UIBackgroundFetchResultNoData;
-		}
-
-		dispatch_group_leave(self.locationManager.dispatchGroup);
-
-		dispatch_group_notify(self.locationManager.dispatchGroup, dispatch_get_main_queue(), ^{
-			DDLogDebug(@"Background stuff finished. Result is %ld", (long) result);
-			completionHandler(result);
-		});
-
-	}
-
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-	DDLogVerbose(@"<---");
-}
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
 	// If the application is in the foreground, we will notify the user of the region's state via an alert.
@@ -185,13 +121,6 @@
 
 }
 
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
-	DDLogError(@"Registration failed: %@", error.localizedDescription);
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:@"" forKey:@"push_id"];
-
-}
 
 #pragma mark - basic stuff
 
@@ -223,22 +152,6 @@
 
 	// Called when the control center is dismissed
 	[self.locationManager enterForeground];
-
-#ifdef CONFIGURATION_Debug
-	[ZeroPush engageWithAPIKey:zeroPushDevKey delegate:self];
-#else
-	[ZeroPush engageWithAPIKey:zeroPushProdKey delegate:self];
-#endif
-
-	//now ask the user if they want to recieve push notifications. You can place this in another part of your app.
-	[[ZeroPush shared] registerForRemoteNotifications];
-
-
-//	if (![application isRegisteredForRemoteNotifications]) {
-//		DDLogError(@"Notifications disabled");
-//		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//		[defaults setObject:@"" forKey:@"push_id"];
-//	}
 
 	DDLogVerbose(@"<---");
 }

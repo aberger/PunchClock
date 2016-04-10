@@ -8,9 +8,8 @@
 
 @import UIKit;
 #import "PCLocationManager.h"
-#import <ZeroPush/ZeroPush.h>
 
-@interface PCAppDelegate : UIResponder <UIApplicationDelegate, ZeroPushDelegate>
+@interface PCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) PCLocationManager *locationManager;

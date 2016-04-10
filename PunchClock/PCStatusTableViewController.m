@@ -129,7 +129,6 @@
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *username = [defaults stringForKey:@"username"];
-	NSString *push_id = [defaults stringForKey:@"push_id"];
 
 	if ([username isEqualToString:@""]) {
 		DDLogError(@"missing username, doing nothing");
@@ -151,7 +150,7 @@
 																																		URLString:[NSString stringWithFormat:@"%@/status/update", PCbaseURL]
 																																	 parameters:@{@"status": status,
 																																								@"name": username,
-																																								@"push_id": push_id,
+																																								@"push_id": @"",
 																																								@"beacon_minor": beacon_minor}
 																																				error:nil];
 	request.timeoutInterval = 5;

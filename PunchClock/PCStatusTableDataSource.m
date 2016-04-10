@@ -108,9 +108,6 @@ static NSString *cellIdentifier = @"StatusTableCell";
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
 	}
 
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *push_id = [defaults stringForKey:@"push_id"];
-
 	if ([self.allPeople count] > 0) {
 		NSDictionary *person = self.allPeople[indexPath.row];
 
@@ -148,7 +145,7 @@ static NSString *cellIdentifier = @"StatusTableCell";
 		bell.selected = [watched_by_value boolValue];
 		bell.accessibilityLabel = bell.selected ? [NSString stringWithFormat:@"Stop watching %@", username] : [NSString stringWithFormat:@"Watch %@", username];
 
-		bell.hidden = [push_id isEqualToString:@""];
+		bell.hidden = YES;
 
 		UIButton *eye = (UIButton *)[cell viewWithTag:5];
 		NSNumber *watches_value = (NSNumber *)person[@"watches_requestor"];
