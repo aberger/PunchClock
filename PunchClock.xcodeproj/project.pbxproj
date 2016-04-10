@@ -295,8 +295,7 @@
 				1A791DAA18442884000943E4 /* Frameworks */,
 				1A791DAB18442884000943E4 /* Resources */,
 				289EE16EF5204CA0A35EA707 /* Copy Pods Resources */,
-				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
-				1AB708FD199E9E6900544362 /* Faux Pas */,
+				7A7675A449D77395C584D76F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,7 +313,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PC;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Panic Inc.";
 				TargetAttributes = {
 					1A791DAC18442884000943E4 = {
@@ -367,20 +366,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AB708FD199E9E6900544362 /* Faux Pas */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Faux Pas";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "exit 0\nif [[ -z ${SKIP_FAUXPAS} || ${SKIP_FAUXPAS} != 1 ]]; then\nif [[ -f /usr/local/bin/fauxpas ]]; then\n/usr/local/bin/fauxpas check-xcode\nelse\necho \"warning: You have to install and set up Faux Pas to use its features!\"\nfi\nfi";
-		};
 		289EE16EF5204CA0A35EA707 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +379,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A7675A449D77395C584D76F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFA829E456724A469B8FF6BC /* Check Pods Manifest.lock */ = {
@@ -410,20 +410,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -n $JOB_NAME ]]; then\n  echo \"Skipping Podfile.lock check\"\n  exit 0\nfi\n\ndiff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nwarning: The sandbox is not in sync with the Podfile.lock. Update your Pods with 'pod install --no-integrate'\nEOM\nexit 0\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Objective-Clean Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?PC\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -497,7 +483,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AB7870818FEDFDA000DDB61 /* PunchClock_Debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -517,6 +505,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PunchClock/PunchClock-Prefix.pch";
 				INFOPLIST_FILE = "PunchClock/PunchClock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.panic.PunchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -530,6 +519,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PunchClock/PunchClock-Prefix.pch";
 				INFOPLIST_FILE = "PunchClock/PunchClock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.panic.PunchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
