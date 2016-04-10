@@ -205,20 +205,25 @@
 																							 name:@"StatusesUpdated"
 																						 object:nil];
 
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *username = [defaults stringForKey:@"username"];
-
-	if ([username isEqualToString:@""]) {
-		[self performSegueWithIdentifier:@"missingNameStatus" sender:self];
-	}
-
-
+    
 	[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
 	[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
 	[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
 	
 	[[PCLocationManager sharedLocationManager] setDelegate:self];
 	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults stringForKey:@"username"];
+    
+    if ([username isEqualToString:@""]) {
+        [self performSegueWithIdentifier:@"missingNameStatus" sender:self];
+    }
 }
 
 - (void)dealloc
