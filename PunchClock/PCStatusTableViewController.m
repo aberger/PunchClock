@@ -11,39 +11,15 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <MZFormSheetController/MZFormSheetSegue.h>
-#import "PCMessageFormViewController.h"
 #import "PCLocationManager.h"
 
 @import CoreLocation;
 
 @interface PCStatusTableViewController () <MZFormSheetBackgroundWindowDelegate, PCLocationManagerDelegate>
 
-@property (strong, nonatomic) IBOutlet UIButton *messageButton;
-
 @end
 
 @implementation PCStatusTableViewController
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-	if ([segue.identifier isEqualToString:@"messageFormSegue"]) {
-		MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
-		MZFormSheetController *formSheet = formSheetSegue.formSheetController;
-		formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
-		formSheet.cornerRadius = 8.0;
-		formSheet.presentedFormSheetSize = CGSizeMake(284.0, 200.0);
-
-		formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
-			// Just dismiss it
-		};
-
-		formSheet.shouldDismissOnBackgroundViewTap = YES;
-
-		formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
-
-		};
-	}
-}
 
 - (void)refreshData:(id)sender
 {
@@ -64,9 +40,7 @@
 	// TODO: Localization Dictionary
 	self.toolbarTitle.text = [NSString localizedStringWithFormat:NSLocalizedString(@"%d People", nil),
 														[count unsignedIntValue]];
-
-	self.messageButton.enabled = ([count compare:@0] == NSOrderedDescending);
-
+    
 	[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 
 }

@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		073D18A6197DDAFE00B92209 /* PCMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073D18A5197DDAFE00B92209 /* PCMessagesTableViewController.m */; };
 		073D18A9197DDC1100B92209 /* PCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073D18A8197DDC1100B92209 /* PCTableViewController.m */; };
-		073D18AC197DE41B00B92209 /* PCMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 073D18AB197DE41B00B92209 /* PCMessageTableViewCell.m */; };
 		1A01C2171857E2080089B546 /* PCStatusTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A01C2161857E2080089B546 /* PCStatusTableDataSource.m */; };
 		1A032CF01A1AA68200633D97 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A032CEF1A1AA68200633D97 /* Launch Screen.xib */; };
 		1A30A7EC18FDE76D002FB8E9 /* PCFileFunctionLevelFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A30A7EB18FDE76D002FB8E9 /* PCFileFunctionLevelFormatter.m */; };
 		1A31D8691858D13700BA2CFE /* PCStatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8681858D13700BA2CFE /* PCStatusTableViewController.m */; };
 		1A4C2982184DACE300CD0868 /* PCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C2981184DACE300CD0868 /* PCLocationManager.m */; };
-		1A4CF3B818E24E2C0086BCC0 /* PCMessageFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4CF3B718E24E2C0086BCC0 /* PCMessageFormViewController.m */; };
 		1A4CF3C018E3812E0086BCC0 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4CF3BD18E3812E0086BCC0 /* UIView+Borders.m */; };
 		1A5E10FA18779CB30079CC56 /* PCStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5E10F918779CB30079CC56 /* PCStatusLabel.m */; };
 		1A631DD218D77AF6004B7D90 /* PCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A631DD118D77AF6004B7D90 /* PCTabBarController.m */; };
@@ -42,12 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		073D18A4197DDAFE00B92209 /* PCMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMessagesTableViewController.h; sourceTree = "<group>"; };
-		073D18A5197DDAFE00B92209 /* PCMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMessagesTableViewController.m; sourceTree = "<group>"; };
 		073D18A7197DDC1100B92209 /* PCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCTableViewController.h; sourceTree = "<group>"; };
 		073D18A8197DDC1100B92209 /* PCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCTableViewController.m; sourceTree = "<group>"; };
-		073D18AA197DE41B00B92209 /* PCMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMessageTableViewCell.h; sourceTree = "<group>"; };
-		073D18AB197DE41B00B92209 /* PCMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMessageTableViewCell.m; sourceTree = "<group>"; };
 		09F295D1F09C9A231E43156E /* Pods.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.beta.xcconfig; path = "Pods/Target Support Files/Pods/Pods.beta.xcconfig"; sourceTree = "<group>"; };
 		0B80FF4B46B02D053612EDEF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1A01C2151857E2080089B546 /* PCStatusTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStatusTableDataSource.h; sourceTree = "<group>"; };
@@ -59,8 +52,6 @@
 		1A31D8681858D13700BA2CFE /* PCStatusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCStatusTableViewController.m; sourceTree = "<group>"; };
 		1A4C2980184DACE300CD0868 /* PCLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLocationManager.h; sourceTree = "<group>"; };
 		1A4C2981184DACE300CD0868 /* PCLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLocationManager.m; sourceTree = "<group>"; };
-		1A4CF3B618E24E2C0086BCC0 /* PCMessageFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMessageFormViewController.h; sourceTree = "<group>"; };
-		1A4CF3B718E24E2C0086BCC0 /* PCMessageFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMessageFormViewController.m; sourceTree = "<group>"; };
 		1A4CF3BC18E3812E0086BCC0 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
 		1A4CF3BD18E3812E0086BCC0 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
 		1A507A7118564A3200138C44 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -135,7 +126,6 @@
 				1A791DC218442884000943E4 /* Main.storyboard */,
 				1AE7EEBF197F0728003F577B /* Team */,
 				1AE7EEBE197F0714003F577B /* Information */,
-				1AE7EEC0197F0744003F577B /* Messages */,
 				1A631DD018D77AF6004B7D90 /* PCTabBarController.h */,
 				1A631DD118D77AF6004B7D90 /* PCTabBarController.m */,
 				073D18A7197DDC1100B92209 /* PCTableViewController.h */,
@@ -257,21 +247,8 @@
 				1A01C2161857E2080089B546 /* PCStatusTableDataSource.m */,
 				1A5E10F818779CB30079CC56 /* PCStatusLabel.h */,
 				1A5E10F918779CB30079CC56 /* PCStatusLabel.m */,
-				1A4CF3B618E24E2C0086BCC0 /* PCMessageFormViewController.h */,
-				1A4CF3B718E24E2C0086BCC0 /* PCMessageFormViewController.m */,
 			);
 			name = Team;
-			sourceTree = "<group>";
-		};
-		1AE7EEC0197F0744003F577B /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				073D18A4197DDAFE00B92209 /* PCMessagesTableViewController.h */,
-				073D18A5197DDAFE00B92209 /* PCMessagesTableViewController.m */,
-				073D18AA197DE41B00B92209 /* PCMessageTableViewCell.h */,
-				073D18AB197DE41B00B92209 /* PCMessageTableViewCell.m */,
-			);
-			name = Messages;
 			sourceTree = "<group>";
 		};
 		4A49C6F244CD1FA9A2B0FD63 /* Pods */ = {
@@ -419,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD4978F18D2279100817DD3 /* PCNameViewController.m in Sources */,
-				073D18A6197DDAFE00B92209 /* PCMessagesTableViewController.m in Sources */,
 				1A791DBD18442884000943E4 /* main.m in Sources */,
 				1A5E10FA18779CB30079CC56 /* PCStatusLabel.m in Sources */,
 				1A4C2982184DACE300CD0868 /* PCLocationManager.m in Sources */,
@@ -429,8 +405,6 @@
 				1A30A7EC18FDE76D002FB8E9 /* PCFileFunctionLevelFormatter.m in Sources */,
 				1A01C2171857E2080089B546 /* PCStatusTableDataSource.m in Sources */,
 				1A4CF3C018E3812E0086BCC0 /* UIView+Borders.m in Sources */,
-				1A4CF3B818E24E2C0086BCC0 /* PCMessageFormViewController.m in Sources */,
-				073D18AC197DE41B00B92209 /* PCMessageTableViewCell.m in Sources */,
 				1A31D8691858D13700BA2CFE /* PCStatusTableViewController.m in Sources */,
 				1A791DC118442884000943E4 /* PCAppDelegate.m in Sources */,
 			);
